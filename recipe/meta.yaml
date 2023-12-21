@@ -1,5 +1,5 @@
 {% set name = "xvec" %}
-{% set version = "0.1.0" %}
+{% set version = "0.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xvec-{{ version }}.tar.gz
-  sha256: 23639ef4edbee86b10f3758a6436fd1907348baadd935cab35604d4930cd1a6f
+  sha256: 1a5558c7e1c5b994347870f0f9e599cd0c60557727ab93bdf821bc15d0162490
 
 build:
   noarch: python
