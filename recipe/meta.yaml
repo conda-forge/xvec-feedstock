@@ -1,27 +1,28 @@
 {% set name = "xvec" %}
 {% set version = "0.3.0" %}
+{% set python_min = "3.9" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/xvec-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/xvec-{{ version }}.tar.gz
   sha256: 8c63ef9ce0f680e986e8553ace19c2b65fb37a992074cc14a918cc297f97bc65
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=61.0
     - setuptools-scm >=6.2
     - pip
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - xarray >=2022.12.0
     - pyproj >=3.0.0
     - shapely >=2.0b1
@@ -34,6 +35,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/xarray-contrib/xvec
